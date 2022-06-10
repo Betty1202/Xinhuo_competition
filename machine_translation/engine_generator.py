@@ -7,12 +7,16 @@ from machine_translation.utils import get_onnx_inputs_outputs
 
 DEFAULT_INFO = {
     "encoder": {
-        "onnx_path": "/workspace/hxy/onnx/t5-encoder-12.onnx",
+        "onnx_path": "onnx/t5-encoder-12.onnx",
         "shapes": [[1, 256]]
     },
     "decoder": {
-        "onnx_path": "/workspace/hxy/onnx/t5-decoder-with-lm-head-12.onnx",
+        "onnx_path": "onnx/t5-decoder-with-lm-head-12.onnx",
         "shapes": [[1, 256], [1, 256, 768]]
+    },
+    "base": {
+        "onnx_path": "onnx/t5-base.onnx",
+        "shapes": [[1, 256], [1, 256], [1, 256], [1, 256]]
     }
 }
 
@@ -132,6 +136,18 @@ def create_t5_encoder_decoder_DTU():
                                                precision="default")
 
     return encoder_engine_path, decoder_engine_path
+
+
+def creat_DTU_session(onnx_path):
+    '''
+    Create engine file on DTU
+    :return:
+    '''
+    inputs_info, output_names = get_onnx_inputs_outputs(onnx_path, 1)
+    inputs_info["shapes"] = DEFAULT_INFO["base"]["shapes"]
+    base_engine_path = generate_engine_file(onnx_path, inputs_info, output_names,
+                                            precision="default")
+    return base_engine_path
 
 
 if __name__ == "__main__":
