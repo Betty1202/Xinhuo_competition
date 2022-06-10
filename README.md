@@ -1,10 +1,10 @@
 # Xinhuo_competition
 
-This repo generates multi-language caption for images. We have 2 versions of demo:
-
-+ GUI version: Demo in this version with GUI, and you can run it on GPU or CPU with pt or onnx model. Note that, it
+This repo generates multi-language caption for images. We provide training code and 2 versions of demo:
++ DTU version demo: Demo in this version run on DTU.
++ GUI version demo: Demo in this version with GUI, and you can run it on GPU or CPU with pt or onnx model. Note that, it
   can't run on DTU, because existing DTU environment doesn't support GUI.
-+ DTU version: Demo in this version run on DTU.
++ Training codes: Codes for training image caption task.
 
 ## DTU version
 
@@ -40,3 +40,6 @@ Note, you can change parameters as followings:
 ## GUI version
 
 TODO: Zewei
+
+## Training codes
+See details in [`PyTorch-Tutorial-to-Image-Captioning`](PyTorch-Tutorial-to-Image-Captioning/README.md) folder.
