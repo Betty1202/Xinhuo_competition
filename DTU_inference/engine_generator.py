@@ -3,7 +3,7 @@ import sys
 
 import TopsInference
 import numpy as np
-from machine_translation.utils import get_onnx_inputs_outputs
+from DTU_inference.utils import get_onnx_inputs_outputs
 
 DEFAULT_INFO = {
     "encoder": {
@@ -138,7 +138,7 @@ def create_t5_encoder_decoder_DTU():
     return encoder_engine_path, decoder_engine_path
 
 
-def creat_DTU_session(onnx_path):
+def creat_DTU_LM_session(onnx_path):
     '''
     Create engine file on DTU
     :return:
