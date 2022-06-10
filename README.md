@@ -2,7 +2,7 @@
 
 This repo generates multi-language caption for images. We provide training code and 2 versions of demo:
 + DTU version demo: Demo in this version run on DTU.
-+ GUI version demo: Demo in this version with GUI, and you can run it on GPU or CPU with pt or onnx model. Note that, it
++ GUI version demo: Demo in this version has GUI interaction interface. You can run it on GPU or CPU with pt or onnx model. Note that, it
   can't run on DTU, because existing DTU environment doesn't support GUI.
 + Training codes: Codes and dataset for training image caption task.
 
