@@ -42,4 +42,4 @@ Note, you can change parameters as followings:
 TODO: Zewei
 
 ## Training codes
-See details in [`PyTorch-Tutorial-to-Image-Captioning`](PyTorch-Tutorial-to-Image-Captioning/README.md) folder.
+How to download dataset and train model are described in [`PyTorch-Tutorial-to-Image-Captioning/README.md`](PyTorch-Tutorial-to-Image-Captioning/README.md).
