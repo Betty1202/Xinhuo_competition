@@ -1,6 +1,6 @@
 import os
 from time import time
-
+import TopsInference
 from onnxruntime import InferenceSession
 from transformers import AutoModelForSeq2SeqLM
 from transformers import AutoTokenizer
@@ -61,22 +61,23 @@ if __name__ == '__main__':
     # outputs = model.generate(input_ids, do_sample=False, max_length=30)
     # print("0", tokenizer.batch_decode(outputs, skip_special_tokens=True))
 
-    temp = 'translate English to Chinese: I was a victim of a series of accidents.'
-    pretrain_model = "t5-base"
-    # pretrain_model="Helsinki-NLP/opus-mt-en-zh"
-    inference = Inference("torch", pretrain_model)
-    print("torch", pretrain_model, inference.inference(temp))
-    inference = Inference("onnx", pretrain_model)
-    print("onnx", pretrain_model, inference.inference(temp))
-    inference = Inference("DTU", pretrain_model)
-    print("DTU", pretrain_model, inference.inference(temp))
+    # temp = 'translate English to Chinese: A group of people sit on a snowy mountain.'
+    # pretrain_model = "t5-base"
+    # # pretrain_model="Helsinki-NLP/opus-mt-en-zh"
+    # inference = Inference("torch", pretrain_model)
+    # print("torch", pretrain_model, inference.inference(temp))
+    # inference = Inference("onnx", pretrain_model)
+    # print("onnx", pretrain_model, inference.inference(temp))
+    # inference = Inference("DTU", pretrain_model)
+    # print("DTU", pretrain_model, inference.inference(temp))
 
-    temp = 'I was a victim of a series of accidents.'
+    temp = 'A group of people sit on a snowy mountain'
     # pretrain_model = "t5-base"
     pretrain_model = "Helsinki-NLP/opus-mt-en-zh"
-    inference = Inference("torch", pretrain_model)
-    print("torch", pretrain_model, inference.inference(temp))
-    inference = Inference("onnx", pretrain_model)
-    print("onnx", pretrain_model, inference.inference(temp))
-    inference = Inference("DTU", pretrain_model)
-    print("DTU", pretrain_model, inference.inference(temp))
+    # inference = Inference("torch", pretrain_model)
+    # print("torch", pretrain_model, inference.inference(temp))
+    # inference = Inference("onnx", pretrain_model)
+    # print("onnx", pretrain_model, inference.inference(temp))
+    with TopsInference.device(0, 0):
+        inference = Inference("DTU", pretrain_model)
+        print("DTU", pretrain_model, inference.inference(temp))
