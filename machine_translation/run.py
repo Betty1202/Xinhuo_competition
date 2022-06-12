@@ -78,6 +78,6 @@ if __name__ == '__main__':
     # print("torch", pretrain_model, inference.inference(temp))
     # inference = Inference("onnx", pretrain_model)
     # print("onnx", pretrain_model, inference.inference(temp))
-    with TopsInference.device(0, 0):
-        inference = Inference("DTU", pretrain_model)
-        print("DTU", pretrain_model, inference.inference(temp))
+    # with TopsInference.device(0, 0):
+    inference = Inference("DTU", pretrain_model)
+    print("DTU", pretrain_model, inference.inference(temp))
