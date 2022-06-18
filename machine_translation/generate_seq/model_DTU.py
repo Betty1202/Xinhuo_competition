@@ -18,7 +18,7 @@ class GenerativeT5_DTU(torch.nn.Module):
         self.tokenizer = tokenizer
         self.decoder_start_token_id = decoder_start_token_id
         self.eos_token_id = eos_token_id
-        self.model = TopsInference.load(self.model)
+        # self.model = TopsInference.load(self.model)
 
     def forward(self, prompt, max_length, temperature=1., repetition_penalty=1., top_k=50, top_p=0,
                 max_context_length=512):
